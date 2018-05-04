@@ -1,0 +1,88 @@
+
+@(implicit request: RequestHeader)
+
+    @main("Typing test") {
+
+        <div class="container" id="typingtest">
+            <div class="row" id="separator"></div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <h1 class="italic" style="float: left;">Typing Speed Test</h1>
+
+                    <div class="test-field results sm right text-center">
+                        Phrase
+                        <div id="sentence-count" class="results-font">
+                            Loading...
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div id="sentence-row" class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <h2>Read through the sentence, then type it out as fast and as accurately as you can.</h2>
+                    <input id="test-sentence" type="text" class="test-field test-input sentence" disabled="disabled">
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <input id="test-input" type="text" class="test-field test-input sentence">
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div id="next-row" class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+
+                    <button id="next-btn" class="standard secondary" type="button">Next [Enter]</button>
+
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div id="next-row" class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+
+                    <h2 id="avg-res-text" class="right">Results (average):</h2>
+
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+
+                    <div id="wpm-display" class="test-field sm right text-center">
+                        WPM
+                        <p id="wpm-key">(Words per minute)</p>
+                        <div id="wpm" class="results-font">
+                            0
+                        </div>
+                    </div>
+
+                    <div class="test-field sm right text-center">
+                        Errors
+                        <div id="error-rate" class="results-font">
+                            0%
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+        </div>
+
+        <script src="@routes.Assets.versioned("javascripts/typingtest.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/keycodes.js")" type="text/javascript"></script>
+    }

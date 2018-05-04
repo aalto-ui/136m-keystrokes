@@ -1,0 +1,97 @@
+@(implicit request: RequestHeader)
+
+@main("Instructions") {
+    <div class="container" id="instructions">
+        <div class="row" id="separator"></div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 class="italic" style="float: left;">Error</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2 style="color: #E2333A;">Your browser appears to be unsupported.</h2>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <p>
+                    To be able to use this test, we need to be able to set a cookie on your browser. This cookie won't be used
+                    for tracking your personal information, its purpose is to make sure we show the correct results to you at
+                    the end of the test. Some browsers have more strict default settings regarding cookies, which generally
+                    is a good thing. Unfortunately, in this case it also means our test won't work as it's supposed to work.
+                </p>
+                <p>
+                    You have a few options to make the test work correctly. You can use Google Chrome, which is supported
+                    out-of-the-box, or you can change your security settings to allow the test to work as it's supposed to.
+                    Remember to change the settings back as they were after completing the test!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2>
+                    Instructions for changing the settings in Firefox:
+                </h2>
+                <ul>
+                    <li>
+                        Click the menu button on the upper right corner of your browser window.
+                    </li>
+                    <li>
+                        Select Preferences.
+                    </li>
+                    <li>
+                        From the list on the left side of the page, click Privacy.
+                    </li>
+                    <li>
+                        Under History, select "Use custom settings for history" from the dropdown menu.
+                    </li>
+                    <li>
+                        New options should appear. Select "Always" from the "Accept third-party cookies" dropdown menu.
+                    </li>
+                    <li>
+                        Close preferences tab and reload the page.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2>
+                    Instructions for changing the settings in Safari on macOS:
+                </h2>
+                <ul>
+                    <li>
+                        Click Safari on your menu bar.
+                    </li>
+                    <li>
+                        Select Preferences.
+                    </li>
+                    <li>
+                        Open privacy setting by selecting the Privacy tab.
+                    </li>
+                    <li>
+                        Select "Always allow" under the "Cookies and website data" setting.
+                    </li>
+                    <li>
+                        Close preferences tab and reload the page.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+}

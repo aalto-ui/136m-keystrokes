@@ -1,0 +1,202 @@
+body {
+    background-color: #deedf7;
+    font-size: 17px;
+}
+
+html, body, #instructions, #typingtest, #questionnaire, #results {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+h1, h2, h3, h5  {
+    font-family: 'Flexo-BoldIt', sans-serif;
+}
+
+h1.italic {
+    font-style: italic;
+}
+
+h1 {
+    color: #005675;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #005675;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    color: #005675;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h5 {
+    margin-left: 17px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+hr{
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border-top: 5px solid #005675;
+}
+
+.some-btn {
+    width: 150px;
+    height: 2em;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.some-logo {
+    height: 16px;
+    vertical-align: text-top;
+}
+
+#twitter-btn {
+    background-color: #1dcaff;
+}
+
+#fb-btn {
+    background-color: #3b5998;
+}
+
+button.standard {
+    padding: .5rem .9rem .5rem .9rem;
+    color: white;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border: 3px solid white;
+    font-family: 'Flexo-BoldIt', sans-serif;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+}
+
+button.primary {
+    background: #58BC00;
+    font-style: italic;
+}
+
+button.secondary {
+    background: #2a8fb4;
+    border: 3px solid lightgray;
+}
+
+button.disabled {
+    background: gray;
+    border: 3px solid lightgray;
+}
+
+.test-field {
+    background-color: #f6fafd;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    border: 3px solid lightgray;
+}
+
+.test-field.results {
+    margin-top: 20px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.test-field.sm {
+    width: 110px
+}
+
+.test-field .results-font {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #4747a3;
+    font-size: 25px;
+}
+
+.test-field.test-input {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 17px;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.test-field.sentence {
+    color: black;
+}
+
+.res-row {
+    display: flex;
+}
+
+.res-explanation {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.questionnaire-input, .hist-results {
+    margin-left: 25px;
+}
+
+.results {
+    box-sizing: border-box;
+}
+
+.text-mono-sm {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+#avg-res-text {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#separator {
+    height: 5%;
+}
+
+#start-btn, #next-btn {
+    float: right;
+}
+
+#sentence-row {
+    margin-top: 50px;
+}
+
+#next-row {
+    margin-top: 25px;
+}
+
+#wpm-display {
+    line-height: 110%;
+}
+
+#wpm-key {
+    font-size: 12px;
+}
+
+#last-row {
+    margin-bottom: 150px;
+}
+
+#results-btn {
+    margin-top: 20px;
+}

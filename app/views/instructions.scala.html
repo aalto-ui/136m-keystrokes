@@ -1,0 +1,57 @@
+
+@(implicit request: RequestHeader)
+
+@main("Instructions") {
+    <div class="container" id="instructions">
+        <div class="row" id="separator"></div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 class="italic" style="float: left;">Instructions</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2 style="color: #E2333A;">Please read carefully before continuing</h2>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <ul>
+                    <li>
+                        You will be presented 15 sentences one by one.
+                    </li>
+                    <li>
+                        Read each sentence carefully, <b>then</b> type it as fast and accurately as poosible.
+                    </li>
+                    <li>
+                        Timing starts after the first keystroke and pauses between sentences. After finishing a
+                        sentence, press 'Enter' to type next sentence.
+                    </li>
+                    <li>
+                        You will get full statistics after completing 15 sentences.
+                    </li>
+                    <li>
+                        By clicking 'Start Test' you give your <a href="consent">informed consent</a> for the data collected during the test
+                        to be stored and used for research purposes.
+                    </li>
+                </ul>
+
+                <div style="margin-top: 10px;">
+                    <button id="start-btn" class="standard primary" type="button">Start test</button>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+
+    <script src="@routes.Assets.versioned("javascripts/vendor/ua-parser.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/instructions.js")" type="text/javascript"></script>
+}

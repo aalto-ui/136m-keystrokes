@@ -1,0 +1,240 @@
+
+@import models.TestResults
+
+@(testResult: TestResults)(implicit request: RequestHeader)
+
+@main("Results") {
+    @*<script src="@routes.Assets.versioned("javascripts/vendor/fb-sdk.js")" type="text/javascript" id="facebook-jssdk"></script>*@
+
+    <div id="fb-root"></div>
+
+    <div class="container" id="results">
+        <div class="row" id="separator"></div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 class="italic"style="float: left;">Results</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1>Basic Statistics</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="res-row pull-left">
+                    <div id="wpm-display" class="test-field sm results text-center">
+                        WPM
+                        <p id="wpm-key">(Words per minute)</p>
+                        <div id="wpm" class="results-font">
+                        @testResult.wpm
+                        </div>
+                    </div>
+                    <h4 class="res-explanation">
+                        Your typing speed is @testResult.wpm words per minute
+                    </h4>
+                </div>
+                <div class="test-field pull-right text-center" style="margin-top: 10px; padding: 5px;">
+                    <h2 style="margin-top: 5px; font-size: 18px;">Help science to make typing faster:</h2>
+                    <button class="standard secondary" type="button" >Take part in a typing experiment</button>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="res-row pull-left">
+                    <div class="test-field sm results text-center">
+                        Errors
+                        <div id="error-rate" class="results-font">
+                        @("%.2f%%".format(testResult.error))
+                        </div>
+                    </div>
+                    <h4 class="res-explanation">
+                        You mistyped @("%.2f%%".format(testResult.error)) of the characters
+                    </h4>
+                </div>
+                <div class="pull-right text-center">
+                    <h2>Share your score with friends</h2>
+                    <div>
+                        <button id="fb-btn" class="some-btn" type="button">
+                            <img class="some-logo" src="@routes.Assets.versioned("images/logos/fb/FB-f-Logo__white_29.png")">
+                            Share
+                        </button>
+                    </div>
+                    <div>
+                        <button id="twitter-btn" class="some-btn" type="button">
+                            <img class="some-logo" src="@routes.Assets.versioned("images/logos/twitter/Twitter_Social_Icon_Square_White.png")">
+                            Tweet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1>Speed</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                @if(testResult.wpm > 20 && testResult.wpm < 120) {
+                    <div class="hist-results">
+                        <img class="test-field" id="wpm-img" src="@routes.ExternalAssets.at("images/wpm/wpm_" + ((testResult.wpm - 20) / 5).toString +  ".png")">
+                    </div>
+                }
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row" id="separator"></div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="res-row">
+                    <div>
+                        <img class="stat-icon" src="@routes.Assets.versioned("images/speedometer_icon.png")" width="60" height="50">
+                        <h5 style="margin-left: 2px;">Typing<br/>Speed</h5>
+                    </div>
+                    <div class="res-explanation">
+                        WPM, or words per minute, is the measure of your typing speed. In comparison, humans produce
+                        spoken language at 250 wpm. <br/>
+                            <a data-toggle="collapse" href="#error-explanation">
+                                Click here to find out how your wpm is calculated <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                            </a>
+                        <div class="collapse" id="wpm-explanation">
+                            The wpm of each sentence is calculated by taking the difference in time between your first and last keystroke, and dividing that
+                            by the total number of characters in the final input. This results in the average speed per keystroke. This is then multiplied by
+                            five to get average speed per word. One minute is then divided with this speed to get the final wpm value. To get the final wpm
+                            score a weighted (based on the length of each sentence) average of all individual sentence scores is calculated.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2>Fastest sentence (errors: @(testResult.sFastestError), wpm: @testResult.sFastestWpm):</h2>
+                <div class="test-field test-input results">
+                @testResult.sFastest
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h2>Slowest sentence (errors: @(testResult.sSlowestError), wpm: @testResult.sSlowestWpm):</h2>
+                <div class="test-field test-input results">
+                @testResult.sSlowest
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1>Error</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                @if(testResult.error >= 0 && testResult.error < 5) {
+                    <div class="hist-results">
+                        <img class="test-field" id="er_img" src="@routes.ExternalAssets.at("images/error/error_" + (testResult.error / 0.25).toInt.toString +  ".png")">
+                    </div>
+                }
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row" id="separator"></div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="res-row">
+                    <div>
+                        <img class="stat-icon" src="@routes.Assets.versioned("images/X.png")" width="60" height="50">
+                        <h5 style="margin-left: 2px;">Error<br/>Rate</h5>
+                    </div>
+                    <div class="res-explanation">
+                        Error rate is the percentage of mistyped characters, not words. It commonly varies between 0% - 0.5%. <br />
+                        <a data-toggle="collapse" href="#error-explanation">
+                            Click here to find out how your error rate is calculated <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                        </a>
+                        <div class="collapse" id="error-explanation">
+                            <p>
+                                To calculate your error rate, each sentence you inputted is compared to the correct sentence. Edit distance,
+                                a value which measures differences between two strings, is then calculated with the
+                                <a target="_blank" href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a> formula. A percentage of error is derived
+                                by comparing the edit distance and either the correct sentence or the sentence inputted, which ever is longer. To get the final
+                                error rate of the whole test, a weighted (based on sentence length) average of all error rates is calculated.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if(testResult.sMostErr.isDefined) {
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <h2>Sentence with highest error rate (errors: @(testResult.sMostErrDist), wpm: @testResult.sMostErrWpm):</h2>
+                    <div class="test-field test-input results">
+                        @testResult.sMostErr (@testResult.sMostErrCor)
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <hr>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div id="next-row" class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-5">
+                <button id="retake-btn" class="standard secondary" type="button">Continue with 15 new sentences</button>
+                <button id="restart-btn" class="standard secondary" type="button">Restart from beginning</button>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+
+        <div id="last-row" class="row"></div>
+
+    </div>
+
+    <script src="@routes.Assets.versioned("javascripts/result.js")" type="text/javascript"></script>
+}

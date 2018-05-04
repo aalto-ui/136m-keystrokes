@@ -1,0 +1,74 @@
+
+@(implicit request: RequestHeader)
+
+@main("Informed Consent") {
+    <div class="container" id="instructions">
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 class="italic" style="float: left;">Informed Consent</h1>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <p>
+                    <b>Collection of data:</b> The data collected consists of: 1) Keypress times and their associated letters;
+                    2) Demographical data and data about participants’ previous writing experience for statistical purposes.
+                </p>
+                <p>
+                    <b>Anonymity, secure storage, confidentiality:</b> The data will be used for scientific purposes only and
+                    are confidential. All data will be anonymized. No explicit clues of your identity will be left
+                    to the stored data. All data will be stored securely.
+                </p>
+                <p>
+                    <b>Suitability for the study:</b> Legally competent adults are allowed as participants.
+                </p>
+                <p>
+                    <b>Voluntary participation:</b> Participation in the study is voluntary. You have the right to discontinue
+                    participation at any time without obligation to disclose any specific reasons.
+                </p>
+                <p>
+                    <b>Research group's experience of the method:</b> The members of the group have experience in over 50+
+                    controlled studies in human-computer interaction. There are no reported incidents of ethical misconduct.
+                </p>
+                <p>
+                    <i>We thank you for your contribution to research efforts.</i>
+                </p>
+
+                <div style="margin-top: 10px;">
+                    <button id="back-btn" class="standard secondary" type="button">Back to Instructions</button>
+                </div>
+
+                <h2>Funding information and contact</h2>
+                <p>
+                    This study is funded by the European Research Council under the Horizon
+                    2020 program (ERC Starting Grant contract ID 637991).
+                </p>
+                <p class="text-mono-sm">
+                    MSc. Anna Feit<br />
+                    Aalto University<br />
+                    anna.feit@@aalto.fi<br />
+                </p>
+                <p class="text-mono-sm">
+                    Prof. Antti Oulasvirta<br />
+                    Aalto University<br />
+                    antti.oulasvirta@@gmail.com<br />
+                </p>
+                <p class="text-mono-sm">
+                    Prof. Per Ola Kristensson<br />
+                    University of Cambridge<br />
+                    kristensson@@acm.org<br />
+                </p>
+
+
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+
+    <script src="@routes.Assets.versioned("javascripts/consent.js")" type="text/javascript"></script>
+}

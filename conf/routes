@@ -1,0 +1,29 @@
+GET     /typingtestRoutes           controllers.TypingTest.typingtestRoutes
+
+# Actual HTML-pages
+GET     /                           controllers.TypingTest.instructions
+GET     /consent                    controllers.TypingTest.consent
+GET     /typingtest                 controllers.TypingTest.typingTest
+GET     /questionnaire              controllers.TypingTest.questionnaire
+GET     /results                    controllers.TypingTest.results
+GET     /uid_err                    controllers.TypingTest.uidErr
+
+# Routes for javascript routing
+GET     /newUid                     controllers.TypingTest.newUid
+GET     /sentence/:first            controllers.TypingTest.sentence(first: Boolean)
+GET     /getWPM                     controllers.TypingTest.getWPM
+GET     /getErrorRate               controllers.TypingTest.getErrorRate
+PUT     /updateStats                controllers.TypingTest.updateStats
+
+# Routes for POST-requests
+# POST    /keystrokes                 controllers.TypingTest.saveKeystroke
+POST    /keystrokes             controllers.TypingTest.saveKeystrokes
+POST    /userInput                  controllers.TypingTest.saveUserInput
+POST    /browserData                controllers.TypingTest.saveBrowserData
+POST    /questionnaire              controllers.TypingTest.questionnairePost
+
+# External assets
+GET     /assets/external/*file      controllers.ExternalAssets.at(root="/var/www/typingmaster/assets/", file: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

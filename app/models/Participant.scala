@@ -1,0 +1,23 @@
+package models
+
+case class Participant(id: Int = 0,
+                       ipAddress: Option[String] = None,
+                       age: Option[Int] = None,
+                       gender: Option[String] = None,
+                       hasTakenTypingCourse: Option[Boolean] = None,
+                       os: Option[String] = None,
+                       osVersion: Option[String] = None,
+                       browser: Option[String] = None,
+                       browserVersion: Option[String] = None,
+                       browserLanguage: Option[String] = None,
+                       detectedCountry: Option[String] = None,
+                       detectedRegion: Option[String] = None,
+                       country: Option[String] = None,
+                       region: Option[String] = None,
+                       layout: Option[String] = None,
+                       wpm: Option[Double] = None,
+                       errorRate: Option[Double] = None,
+                       nativeLanguage: Option[String] = None,
+                       fingers: Option[String] = None,
+                       timeSpentTyping: Option[Int] = None,
+                       keyboardType: Option[String] = None)
